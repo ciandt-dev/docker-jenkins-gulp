@@ -1,11 +1,11 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+ && apt-get install -y wget git curl zip make subversion ruby-full openjdk-7-jdk maven \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup | bash -
-
-RUN apt-get install -y ruby-full nodejs openjdk-7-jdk maven
-RUN apt-get install -y make subversion
+RUN apt-get install -y nodejs
 RUN gem install sass compass
 RUN npm install -g gulp
 
